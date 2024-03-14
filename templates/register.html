@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{%block title%}Rejestracja{%endblock%}
+{%block content%}
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flash-messages">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <div class="container">
+        <form action="" method="post" class="form">
+            <h2>Rejestracja</h2>
+            <label for="username">Nazwa użytkownika:</label>
+            <input type="text" id="username" name="username" required><br>
+
+            <label for="password">Hasło:</label>
+            <input type="password" id="password" name="password" required><br>
+
+            <label for="confirm_password">Potwierdź hasło:</label>
+            <input type="password" id="confirm_password" name="confirm_password" required><br>
+
+            <input type="submit" value="Zarejestruj się" class="button">
+        </form>
+
+        <a href="{{ url_for('login') }}" class="link">Masz już konto? Zaloguj się</a>
+    </div>
+{%endblock%}
